@@ -6,11 +6,19 @@
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+<<<<<<< HEAD
       http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
+=======
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+	
+>>>>>>> 690de9767527b7f2649666b96d625a6265b86f6d
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 		<!-- Old Driver -->
@@ -20,7 +28,11 @@
 		<property name="driverClassName"
 			value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
 		<property name="jdbcUrl"
+<<<<<<< HEAD
 			value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE"></property>
+=======
+			value="jdbc:log4jdbc:oracle:thin:@192.168.0.158:1521:XE"></property>
+>>>>>>> 690de9767527b7f2649666b96d625a6265b86f6d
 		<property name="username" value="scott"></property>
 		<property name="password" value="tiger"></property>
 	</bean>
@@ -40,8 +52,12 @@
 	<!-- 컴포넌트 스캔(compoent-scan) 설정사용할 객체들을 <bean> 등록하지 않고 자동으로 생성하기 위해 사용 -->
 
 
+<<<<<<< HEAD
 	<mybatis-spring:scan
 		base-package="org.joonzis.mapper" />
+=======
+	<mybatis-spring:scan base-package="org.joonzis.mapper" />
+>>>>>>> 690de9767527b7f2649666b96d625a6265b86f6d
 	<context:component-scan
 		base-package="org.joonzis.service" />
 
@@ -54,6 +70,7 @@
 	<context:component-scan
 		base-package="org.joonzis.aop"></context:component-scan>
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+<<<<<<< HEAD
 
 	<!-- gmail설정 -->
 	<bean id="mailSender2"
@@ -74,4 +91,9 @@
 
 
 
+=======
+	
+	
+		
+>>>>>>> 690de9767527b7f2649666b96d625a6265b86f6d
 </beans>

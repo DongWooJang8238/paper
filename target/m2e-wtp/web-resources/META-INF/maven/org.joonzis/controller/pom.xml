@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+=======
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+>>>>>>> 690de9767527b7f2649666b96d625a6265b86f6d
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.joonzis</groupId>
@@ -25,7 +29,11 @@
 				<exclusion>
 					<groupId>commons-logging</groupId>
 					<artifactId>commons-logging</artifactId>
+<<<<<<< HEAD
 				</exclusion>
+=======
+				 </exclusion>
+>>>>>>> 690de9767527b7f2649666b96d625a6265b86f6d
 			</exclusions>
 		</dependency>
 		<dependency>
@@ -33,14 +41,23 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
+<<<<<<< HEAD
 
+=======
+				
+>>>>>>> 690de9767527b7f2649666b96d625a6265b86f6d
 		<!-- AspectJ -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
+<<<<<<< HEAD
 		</dependency>
 
+=======
+		</dependency>	
+		
+>>>>>>> 690de9767527b7f2649666b96d625a6265b86f6d
 		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -83,6 +100,49 @@
 			</exclusions>
 		</dependency>
 
+<<<<<<< HEAD
+=======
+		<!-- @Inject -->
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
+				
+		<!-- Servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->
+      <dependency>
+         <groupId>org.aspectj</groupId>
+         <artifactId>aspectjrt</artifactId>
+         <version>1.9.5</version>
+      </dependency>
+
+      <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+      <dependency>
+         <groupId>org.aspectj</groupId>
+         <artifactId>aspectjweaver</artifactId>
+         <version>1.9.5</version>
+      </dependency>
+
+>>>>>>> 690de9767527b7f2649666b96d625a6265b86f6d
 		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -97,6 +157,7 @@
 			<artifactId>ojdbc6</artifactId>
 			<version>11.2.0.4</version>
 		</dependency>
+<<<<<<< HEAD
 		<!-- spring-tx ⇒ 트랜잭션을 사용하기 위한 라이브러리 ( 5.0.7 ) -->
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
 		<dependency>
@@ -150,11 +211,69 @@
 			<version>1.16</version>
 		</dependency>
 
+=======
+	<!--   spring-tx ⇒ 트랜잭션을 사용하기 위한 라이브러리 ( 5.0.7 ) -->
+	<!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+      <dependency>
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-test</artifactId>
+         <version>${org.springframework-version}</version>
+         <scope>test</scope>
+      </dependency>
+	  <!--   spring-jdbc ⇒ DB와 연동하기 위한 라이브러리 ( 5.0.7 ) -->
+      <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+      <dependency>
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-jdbc</artifactId>
+         <version>${org.springframework-version}</version>
+      </dependency>
+
+      <!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
+      <dependency>
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-tx</artifactId>
+         <version>${org.springframework-version}</version>
+      </dependency>
+
+      <!-- HikariCP -->
+      <dependency>
+         <groupId>com.zaxxer</groupId>
+         <artifactId>HikariCP</artifactId>
+         <version>2.7.8</version>
+      </dependency>
+
+      <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+      <dependency>
+         <groupId>org.mybatis</groupId>
+         <artifactId>mybatis</artifactId>
+         <version>3.4.6</version>
+      </dependency>
+	
+		<!--  mybatis-spring ⇒ MyBatis를 사용하기 위한 스프링 라이브러리 ( 1.3.2 ) -->
+      <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
+      <dependency>
+         <groupId>org.mybatis</groupId>
+         <artifactId>mybatis-spring</artifactId>
+         <version>1.3.2</version>
+      </dependency>
+     
+	  <!--  - Log4jdbc ⇒ 데이터베이스 실행 시, 단위 테스트를 위한 라이브러리 ( 1.16 ) -->
+      <!-- https://mvnrepository.com/artifact/org.bgee.log4jdbc-log4j2/log4jdbc-log4j2-jdbc4.1 -->
+      <dependency>
+         <groupId>org.bgee.log4jdbc-log4j2</groupId>
+         <artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
+         <version>1.16</version>
+      </dependency>
+
+	<!-- 테스트 시 json 타입의 문자열로 변환하기 위해 ( 2.8.6 ) -->
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+>>>>>>> 690de9767527b7f2649666b96d625a6265b86f6d
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
 			<version>2.8.6</version>
 		</dependency>
+<<<<<<< HEAD
 
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -162,12 +281,17 @@
 			<version>2.12.2</version>
 		</dependency>
 
+=======
+		
+		<!-- xml 형식으로 사용하기 위해 ( 2.12.2 ) -->
+>>>>>>> 690de9767527b7f2649666b96d625a6265b86f6d
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-xml -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-xml</artifactId>
 			<version>2.12.2</version>
 		</dependency>
+<<<<<<< HEAD
 
 
 
@@ -187,6 +311,19 @@
 
 
 		<!-- 시큐리티 라이브러리 -->
+=======
+		
+		<!-- jackson-core 및 jackson-annotation 라이브러리의 의존성을 포함하여 사용할 수 있도록 하는 라이브러리 
+			( 2.12.2 ) -->
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.12.2</version>
+		</dependency>
+		
+		<!-- 시큐리티 관련 기능들 -->
+>>>>>>> 690de9767527b7f2649666b96d625a6265b86f6d
 		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
@@ -208,12 +345,17 @@
 			<version>5.0.6.RELEASE</version>
 		</dependency>
 
+<<<<<<< HEAD
+=======
+		<!-- spring-security-taglibs ⇒ jsp에서 시큐리티 태그 라이브러리를 사용하기 위함 ( 5.0.6 ) -->
+>>>>>>> 690de9767527b7f2649666b96d625a6265b86f6d
 		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-taglibs</artifactId>
 			<version>5.0.6.RELEASE</version>
 		</dependency>
+<<<<<<< HEAD
 
 		<!-- SMTP 메일 전송 관련 라이브러리 -->
 		<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
@@ -257,12 +399,16 @@
 			<version>1.2</version>
 		</dependency>
 
+=======
+	
+>>>>>>> 690de9767527b7f2649666b96d625a6265b86f6d
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 			<scope>test</scope>
+<<<<<<< HEAD
 		</dependency>
 	</dependencies>
 	<build>
@@ -303,4 +449,46 @@
 			</plugin>
 		</plugins>
 	</build>
+=======
+		</dependency>        
+	</dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <version>2.9</version>
+                <configuration>
+                    <additionalProjectnatures>
+                        <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
+                    </additionalProjectnatures>
+                    <additionalBuildcommands>
+                        <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
+                    </additionalBuildcommands>
+                    <downloadSources>true</downloadSources>
+                    <downloadJavadocs>true</downloadJavadocs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                    <compilerArgument>-Xlint:all</compilerArgument>
+                    <showWarnings>true</showWarnings>
+                    <showDeprecation>true</showDeprecation>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <configuration>
+                    <mainClass>org.test.int1.Main</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+>>>>>>> 690de9767527b7f2649666b96d625a6265b86f6d
 </project>

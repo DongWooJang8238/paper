@@ -23,6 +23,11 @@
 	
 	<context:component-scan base-package="org.joonzis.controller" />
 	
+<<<<<<< HEAD
+=======
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver">
+	</beans:bean>
+>>>>>>> 690de9767527b7f2649666b96d625a6265b86f6d
 	
 	
 </beans:beans>
