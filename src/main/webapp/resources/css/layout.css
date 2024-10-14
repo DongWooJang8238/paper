@@ -1,0 +1,136 @@
+/* 헤더 */
+/* 기본 설정 */
+html, body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    height: 100%;
+    overflow-x: hidden; /* 좌우 스크롤 방지 */
+}
+
+/* 헤더 영역 */
+header {
+    background-color: #333;
+    color: white;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%; /* 전체 화면의 70%만 차지 */
+    margin: 0 auto; /* 가운데 정렬 */
+    padding: 10px 0; /* 상하 패딩 */
+}
+
+.logo img {
+    height: 40px;
+}
+
+.user-options button {
+    margin-left: 10px;
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* 카테고리 영역 */
+.categories {
+    margin: 0; /* 기존 여백 제거 */
+}
+
+.categories-container {
+    width: 70%; /* 전체 화면의 70%만 차지 */
+    margin: 0 auto; /* 가운데 정렬 */
+}
+
+.category-container {
+    display: flex; /* 가로로 배열 */
+    flex-direction: row; /* 가로 방향 */
+    justify-content: flex-start; /* 왼쪽 정렬 */
+}
+
+.category {
+    margin: 10px; /* 항목 사이 간격 */
+    cursor: pointer;
+    padding: 10px 15px;
+    background-color: #444;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.category:hover {
+    background-color: #555; /* 마우스 오버 시 색상 변화 */
+}
+
+/* 서브카테고리 */
+.subcategories {
+    display: none;
+}
+
+.genre div {
+    margin: 5px 0;
+    padding: 5px;
+    background-color: #666;
+    color: white;
+    cursor: pointer;
+}
+
+.genre div:hover {
+    background-color: #777;
+}
+
+/* 푸터 */
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%; /* 전체 화면의 70%만 차지 (양쪽에 15% 여백) */
+    margin: 0 auto; /* 가운데 정렬 */
+    
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0; /* 상하 20px */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+
+    .footer-content {
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+
+    .footer-logo img {
+        margin-right: 20px;
+    }
+
+    .team-info {
+        margin-right: 20px;
+        
+    }
+
+    .customer-service {
+        display: flex;
+        align-items: center;
+    }
+
+    .customer-service input {
+        margin-left: 10px;
+        background-color: #444;
+        color: white;
+        border: none;
+        padding: 5px;
+        width: 250px;
+    }

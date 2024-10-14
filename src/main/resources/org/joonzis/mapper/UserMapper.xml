@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.joonzis.mapper.UserMapper">
+
+	<!-- 단일 아이디 (중복체크 검사) -->
+	<select id="selectUsername" parameterType="String"
+		resultType="int">
+		select count(*) from tbl_user where userId = #{userId}
+	</select>
+
+	<!-- 아이디&비밀번호 검색 -->
+	<select id="selectUserPw"
+		parameterType="org.joonzis.domain.UserVO" resultType="int">
+		select count(*)
+		from tbl_user where userId = #{userId} and userPw = #{userPw}
+	</select>
+
+	<!-- 아이디 검색 -->
+	<select id="selectUserId" parameterType="String"
+		resultType="org.joonzis.domain.UserVO">
+		select * from tbl_user where userId = #{userId}
+	</select>
+
+	<!-- 회원가입 데이터 등록 -->
+	<insert id="signup_insert" parameterType="org.joonzis.domain.UserVO">
+		insert into tbl_user
+		(mno,username,userid,userpw,userphonenumber,useraddress,useremail,usergender,USERROLE,nickname,registerdate)
+		values
+		(MNO_SEQ.nextval,#{userName},#{userId},#{userPw},'01014545678','test',#{userEmail},'man','USER_ROLE',USERNAME_SEQ.nextval,sysdate)
+	</insert>
+
+	<!-- 아이디 찾기 -->
+	<select id="findUserId" parameterType="org.joonzis.domain.UserVO" resultType="int">
+		select count(*)
+		from tbl_user where userName = #{userName} and userEmail =
+		#{userEmail}
+	</select>
+
+	<!-- 아이디 검색 출력 -->
+	<select id="selectUserIdByEmail" parameterType="org.joonzis.domain.UserVO" resultType="org.joonzis.domain.UserVO">
+		select * from tbl_user where userName = #{userName} and
+		userEmail = #{userEmail}
+	</select>
+
+	<!-- 비밀번호 찾기 출력 ( 아이디/이메일 인증번호 보내기 전 ) -->
+	<select id="findUserIdEmail" parameterType="org.joonzis.domain.UserVO" resultType="org.joonzis.domain.UserVO">
+		select * from tbl_user where userId = #{userId} and
+		userEmail = #{userEmail}
+	</select>
+
+	<!-- 새비밀번호 설정 -->
+	<update id="updatePw" parameterType="org.joonzis.domain.UserVO" >
+		update tbl_user
+		set userPw = #{userPw}
+		where userId = #{userId}
+	</update>
+
+</mapper>

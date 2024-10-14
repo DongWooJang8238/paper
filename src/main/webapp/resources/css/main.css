@@ -1,0 +1,57 @@
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f2f2f2;
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	width: 80%;
+	margin: 0 auto;
+	padding-top: 20px;
+}
+
+.banner {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #d9d9d9;
+	padding: 20px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.section {
+	display: flex;
+	gap: 20px;
+	margin-bottom: 20px;
+}
+
+.ranking, .popular, .recommended, .notice {
+	background-color: #e0e0e0;
+	padding: 20px;
+	flex: 1;
+}
+
+.ranking h3, .recommended h3 {
+	margin-top: 0;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 10px;
+}
+
+.ranking .item, .recommended .item {
+	background-color: #8d7373;
+	color: white;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+.popular ul, .notice ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.popular li, .notice li {
+	margin-bottom: 10px;
+}
