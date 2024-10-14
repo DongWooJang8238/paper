@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.joonzis.mapper.ShopMapper">
+	<!-- 전체 책 리스트 조회 -->
+	<select id="getBookList" parameterType="org.joonzis.domain.Criteria" resultType="org.joonzis.domain.BookVO">
+		<![CDATA[
+		select bno, gno, inventory, bookPrice, writer, title, publisher, shortText, isbn, bookcover, status, ordDate, avgRating from
+		(select rownum rn, bno, gno, inventory, bookPrice, writer, title, publisher, shortText, isbn, bookcover, status, ordDate, avgRating from
+		(select * from tbl_book ORDER BY status desc)
+		where rownum <= #{pageNum} * #{amount})
+		where rn > (#{pageNum} - 1) * #{amount}
+		]]>
+	</select>
+	
+	<!-- 카테고리 별 책 리스트 조회 -->
+	<select id="getBookListGe" parameterType="org.joonzis.domain.Criteria" resultType="org.joonzis.domain.BookVO">
+		<![CDATA[
+		select bno, gno, inventory, bookPrice, writer, title, publisher, shortText, isbn, bookcover, status, ordDate, avgRating from
+		(select rownum rn, bno, gno, inventory, bookPrice, writer, title, publisher, shortText, isbn, bookcover, status, ordDate, avgRating from
+		(select * from tbl_book where gno = #{gener} ORDER BY status desc)
+		where rownum <= #{pageNum} * #{amount})
+		where rn > (#{pageNum} - 1) * #{amount}
+		]]>
+	</select>
+	
+	<!-- 전체 책 개수 조회 -->
+	<select id="getTotal" resultType="int">
+		 select count(*) from tbl_book
+	</select>
+	
+	<!-- 카테고리 별 책 개수 조회 -->
+	<select id="getTotalByGno" parameterType="int" resultType="int">
+		 select count(*) from tbl_book where gno = #{gno}
+	</select>
+	
+	<!-- 책 좋아요 수 조회 -->
+	<select id="getTotalLikeByBno" parameterType="int" resultType="int">
+		select count(*) from tbl_blike where bno = #{bno}
+	</select>
+	
+	<!-- 단일 책 조회 -->
+	<select id="getBookOne" parameterType="int" resultType="org.joonzis.domain.BookVO">
+		select * from tbl_book where bno = #{bno}
+	</select>
+	
+	<!-- 구매 리스트 저장(장바구니) -->
+	<insert id="buyList" parameterType="org.joonzis.domain.BookBuyListVO">
+		insert into tbl_order VALUES (#{bno}, #{mno}, #{count})
+	</insert>
+	
+	<!-- 장바구니 조회 ( 장바구니 담기 눌렀을 때 판단 용도 ) -->
+	<select id="buyListCount" parameterType="int" resultType="org.joonzis.domain.BookBuyListVO">
+		 select * from tbl_order where bno = #{bno}
+	</select>
+	
+	<!-- 장바구니 업데이트 ( 장바구니 담기 눌렀을 때 이미 존재할 경우 ) -->
+	<update id="buyListCountUp" parameterType="org.joonzis.domain.BookBuyListVO">
+		update tbl_order set count = count + #{count} where bno = #{bno}
+	</update>
+	
+	<!-- 장바구니 조회 ( 장바구니 list 뿌려주기 용도 ) -->
+	<select id="buyListSelect" parameterType="int" resultType="org.joonzis.domain.BookBuyListVO">
+		select * from tbl_order where mno = #{mno}
+	</select>
+	
+	<!-- 장바구니에서 상품 삭제(1) -->
+	<delete id="deleteCart" parameterType="int">
+		delete from tbl_order where bno = #{bno}
+	</delete>
+	
+	<!-- 주문상세페이지에 구매한 상품 저장 -->
+	<insert id="insertOrderDetail" parameterType="org.joonzis.domain.OrderDetailVO">
+		insert into tbl_order_detail values (seq_order_detail.nextval, #{mno}, #{orderName}, #{orderPhone}, #{orderAddr}, #{totalPrice}, sysdate, '배송전', #{point}, #{userDeposit})
+	</insert>
+	
+	<!-- 주문상세페이지 조회 ( by.mno / odno ) -->
+	<select id="selectOrderDetailOdno" parameterType="int" resultType="int">
+		select max(odno) from tbl_order_detail where mno = #{mno}
+	</select>
+	<!-- 주문상세페이지 조회 ( by.mno ) -->
+	<select id="selectOrderDetail" parameterType="int" resultType="org.joonzis.domain.OrderDetailVO">
+		select * from tbl_order_detail where mno = #{mno}
+	</select>
+	<!-- 주문한 책 데이터 저장 ( odno로 조회 가능 ) -->
+	<insert id="insertOrderBookList" parameterType="org.joonzis.domain.OrderBookListVO">
+		insert into tbl_odno_bno values (#{odno}, #{bno}, #{count})
+	</insert>
+	<!-- 장바구니에서 구매한 데이터 삭제 -->
+	<delete id="deleteCartAll" parameterType="int">
+		delete from tbl_order where mno = #{mno}
+	</delete>
+</mapper>
